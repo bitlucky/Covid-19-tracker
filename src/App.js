@@ -5,6 +5,7 @@ import "./App.css";
 
 function App() {
 const [countries , setCountries] = useState([]);
+const [country , setCountry ] = useState(['worldwide']);
 
 
   //Use effect = runs a piece of code
@@ -33,12 +34,18 @@ const [countries , setCountries] = useState([]);
 
   }, [countries]); 
 
+  const onCountryChange = (event)=>{
+    const countryCode = event.target.value;
+    setCountry(countryCode);
+
+  }
+
   return (
     <div className="App">
       <div className="app_header">
         <h1> Lets build a covid 19 tracker </h1>
         <FormControl className="app_dropdown">
-          <Select variant="outlined" value="abc">
+          <Select variant="outlined" onChange = {onCountryChange} value={country}>
             {/* loop through all the countries and show a drop down list of the countries  */}
             <MenuItem value="worldwide"> WorldWide </MenuItem>
             {countries.map((country ) => (
@@ -51,6 +58,8 @@ const [countries , setCountries] = useState([]);
           </Select>
         </FormControl>
       </div>
+
+            
     </div>
   );
 }
