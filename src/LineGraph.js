@@ -13,6 +13,7 @@ function LineGraph() {
                 const  newDataPoint = {
                   x: date,
                   y: data[casesType][date] - lastDataPoint,
+                  
                 };
                 chartData.push(newDataPoint);
               }
