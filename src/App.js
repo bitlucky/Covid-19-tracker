@@ -10,6 +10,7 @@ import InfoBox from "./InfoBox";
 import Map from "./Map";
 import Table from './Table'
 import {sortData} from './util';
+import LineGraph from './LineGraph';
 
 import "./App.css";
 
@@ -64,7 +65,7 @@ function App() {
         
         //all of the data from the country response
         setCountryInfo(data);
-     })  
+     },[])  
 
   // https://disease.sh/v3/covid-19/all
 // "https://disease.sh/v3/covid-19/countries/[COUNTRY_CODE]"
@@ -120,6 +121,7 @@ function App() {
           <h4> Live cases by country </h4>
           <Table countries = {tableData}/>
           <h4>WorldWide New Cases</h4>
+          <LineGraph/>
         </CardContent>
       </Card>
     </div>
