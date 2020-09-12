@@ -20,6 +20,8 @@ function App() {
   const [country, setCountry] = useState(["worldwide"]);
   const [countryInfo , setCountryInfo] = useState({});
   const [tableData , setTableData] = useState([]);
+  const [mapCenter, setMapCenter] = useState({ lat: 34.80746, lng: -40.4796 });
+  const [mapZoom, setMapZoom] = useState(3);
   //Use effect = runs a piece of code
   // based on a given condition
 
@@ -114,7 +116,10 @@ function App() {
           cases={countryInfo.todayDeaths} 
           total={countryInfo.deaths} />
         </div>
-        <Map />
+        <Map
+        center = {mapCenter}
+        zoom = {mapZoom}
+        />
       </div>
 
       <Card className="app_right">
